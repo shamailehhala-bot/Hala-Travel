@@ -1,1 +1,26 @@
+body {
+    font-family: 'Cairo';
+}
+
+.blue {
+    background: lightblue;
+}
+
+.orange {
+    display: inline-block;
+    background: orange;
+}
+
+.red {
+    font-size: 16px;
+    color: red;
+}
+
+.black {
+    background: black;
+    color: white; 
+    padding: 10px;
+    border: 2px solid black;
+    margin: 10px;
+}
 
