@@ -1,0 +1,64 @@
+:root {
+  --primary-color: #2C3E50;
+  --secondary-color: #E67E22;
+  --accent-color: #16A085;
+  --dark-color: #34495E;
+  --light-color: #ECF0F1;
+
+  --main-font: 'Cairo', sans-serif;
+  --section-padding: 80px;
+  --text-size: 18px;
+  --title-size: 32px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--main-font);
+  line-height: 1.6;
+}
+
+section {
+  padding: var(--section-padding);
+  text-align: center;
+}
+
+h2 {
+  font-size: var(--title-size);
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: var(--text-size);
+  max-width: 600px;
+  margin: auto;
+}
+
+.hero {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.about {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.services {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.portfolio {
+  background-color: var(--dark-color);
+  color: white;
+}
+
+.contact {
+  background-color: var(--light-color);
+  color: var(--primary-color);
+}
