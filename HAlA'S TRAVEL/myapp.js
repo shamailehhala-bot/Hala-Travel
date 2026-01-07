@@ -1,4 +1,4 @@
-﻿let flights = [
+let flights = [
     {
         id: 1,
         from: "Amman",
@@ -30,7 +30,6 @@ let bookings = [
 ];
 
 console.log("Flights available:", flights);
-
 
 function showFlights() {
     const flightsList = document.getElementById("flightsList");
@@ -66,4 +65,6 @@ function bookTicket() {
             " | Tickets: " + tickets;
         message.style.color = "green";
 
-        console.log("New booking:", bookings[
+        console.log("New booking:", bookings[bookings.length - 1]);
+    }
+}
