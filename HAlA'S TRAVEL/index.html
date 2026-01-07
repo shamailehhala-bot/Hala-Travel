@@ -25,12 +25,17 @@
             <p>Your optimal and most comfortable choice for your favorite destination..</p>
 
             <div class="search-box">
-                <input type="text" placeholder="From">
-                <input type="text" placeholder="To">
-                <input type="date">
-                <input type="date">
-                <button>Search</button>
+                <input type="text" id="from" placeholder="From">
+                <input type="text" id="to" placeholder="To">
+                <input type="date" id="departureDate">
+                <input type="date" id="returnDate">
+                <input type="number" id="tickets" placeholder="Number of Tickets">
+                <button onclick="bookTicket()">Search</button>
             </div>
+
+            <h3>Available Flights:</h3>
+            <ul id="flightsList"></ul>
+            <p id="message"></p>
         </div>
     </section>
 
@@ -52,8 +57,9 @@
     <footer>
         <p>© 2025 Hala's SkyTravel. All rights reserved.</p>
     </footer>
-    <script src="myapp.js"></script>
 
+   
+    <script src="myapp.js"></script>
 
 </body>
 </html>
