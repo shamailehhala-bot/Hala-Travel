@@ -8,8 +8,11 @@
 <body>
 
     <nav>
-        <h2>Hala's SkyTravel</h2>
-        <div>
+        <div class="logo-container">
+            <img src="./images/logo.png" alt="Logo" class="logo">
+            <h2>Hala's SkyTravel</h2>
+        </div>
+        <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
@@ -18,27 +21,28 @@
         </div>
     </nav>
 
-
     <section class="hero">
-        <div class="hero-text">
-            <h1>Book Flights Easily</h1>
-            <p>Search and compare flights from all airlines in one place</p>
-            <p>Your optimal and most comfortable choice for your favorite destination..</p>
-
-            <div class="search-box">
-                <input type="text" id="from" placeholder="From">
-                <input type="text" id="to" placeholder="To">
-                <input type="date" id="departureDate">
-                <input type="date" id="returnDate">
-                <input type="number" id="tickets" placeholder="Number of Tickets">
-                <button onclick="bookTicket()">Search</button>
-                <button onclick="resetSearch()" type="button">Reset</button>
+        <div class="hero-logo-container">
+            <img src="./images/logo.png" alt="Logo" class="hero-logo">
+            <div class="hero-text-container">
+                <h1 class="hero-title"></h1>
+                <p class="hero-subtitle"></p>
             </div>
-
-            <h3>Available Flights:</h3>
-            <ul id="flightsList"></ul>
-            <p id="message"></p>
         </div>
+
+        <div class="search-box">
+            <input type="text" id="from" placeholder="From">
+            <input type="text" id="to" placeholder="To">
+            <input type="date" id="departureDate">
+            <input type="date" id="returnDate">
+            <input type="number" id="tickets" placeholder="Number of Tickets">
+            <button onclick="bookTicket()">Search</button>
+            <button onclick="resetSearch()" type="button">Reset</button>
+        </div>
+
+        <h3>Available Flights:</h3>
+        <ul id="flightsList"></ul>
+        <p id="message"></p>
     </section>
 
     <section class="features">
@@ -55,18 +59,16 @@
             <p>Your data and payments are fully protected.</p>
         </div>
     </section>
+
     <section class="features">
         <div class="feature">
-            <h3>Async Data Viewer</h3>
+            <h3>Our Users!</h3>
             <button id="loadUsersBtn">Load Users</button>
-
             <p id="loadingMessage"></p>
             <p id="errorMessage"></p>
-
             <ul id="usersList"></ul>
         </div>
     </section>
-
 
     <footer>
         <p>© 2025 Hala's SkyTravel. All rights reserved.</p>
@@ -74,6 +76,41 @@
 
     <script src="myapp.js"></script>
     <script src="async-viewer.js"></script>
+
+    <script>
+        const titleText = "Hala's SkyTravel";
+        const subtitleText = "Your ideal choice for luxury in travel...";
+
+        const titleElement = document.querySelector('.hero-title');
+        const subtitleElement = document.querySelector('.hero-subtitle');
+
+        let i = 0;
+        let j = 0;
+
+        function typeTitle() {
+            if (i < titleText.length) {
+                titleElement.textContent += titleText.charAt(i);
+                titleElement.style.opacity = 1;
+                i++;
+                setTimeout(typeTitle, 150);
+            } else {
+                typeSubtitle();
+            }
+        }
+
+        function typeSubtitle() {
+            if (j < subtitleText.length) {
+                subtitleElement.textContent += subtitleText.charAt(j);
+                subtitleElement.style.opacity = 1;
+                j++;
+                setTimeout(typeSubtitle, 80);
+            }
+        }
+
+        window.addEventListener("load", () => {
+            typeTitle();
+        });
+    </script>
 
 </body>
 </html>

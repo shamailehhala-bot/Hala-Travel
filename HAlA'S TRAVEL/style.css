@@ -1,6 +1,6 @@
 body {
-    background-image: url('./images/planee.jpg'); 
-    background-size: cover;
+    background-image: url('./images/planee.jpg');
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -21,7 +21,34 @@ nav {
     top: 0;
     z-index: 1000;
 }
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
 
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+
+.logo-container h2 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+}
+.nav-links a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .nav-links a:hover {
+        color: #38bdf8;
+    }
 nav h2 {
     font-size: 22px;
 }
@@ -39,58 +66,103 @@ nav a:hover {
 
 .hero {
     background: rgba(11, 28, 45, 0.8);
-    padding: 40px 60px;
+    padding: 80px 60px;
     color: white;
-    min-height: 30vh;
+    min-height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 1200px;
-    margin: 40px auto;
+    align-items: center;
     border-radius: 15px;
+    text-align: center;
 }
 
-.hero-text h1 {
-    font-size: 44px;
-    margin-bottom: 15px;
+.hero-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: bounce 1s ease infinite;
+}
+.hero-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; 
+    max-width: 800px;
+    width: 100%;
+    margin-top: -40px;
 }
 
-.hero-text p {
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(-5px);
+    }
+}
+
+
+
+.hero-title {
+    font-size: 36px;
+    margin: -10px 0 10px 0; 
+    opacity: 0;
+}
+
+.hero-subtitle {
     font-size: 18px;
-    line-height: 1.6;
-    opacity: 0.9;
-    margin-bottom: 20px;
+    margin: -5px 0 20px 0; 
+    opacity: 0;
 }
+
 
 .search-box {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 15px;
-    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
-.search-box input, 
-.search-box select {
-    padding: 12px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
+    .search-box input,
+    .search-box button {
+        flex: 1 1 150px;
+        min-width: 150px;
+        padding: 12px 15px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        box-sizing: border-box;
+    }
 
-.search-box button {
-    background: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
+    .search-box input {
+        background: rgba(255, 255, 255, 0.9);
+    }
 
-.search-box button:hover {
-    background: #1d4ed8;
-}
+    .search-box button {
+        background: #2563eb;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .search-box button:hover {
+            background: #1d4ed8;
+        }
+
+
+
 
 .features {
     padding: 60px;
@@ -99,7 +171,7 @@ nav a:hover {
     gap: 20px;
     max-width: 1200px;
     margin: 40px auto;
-    background: rgba(255,255,255,0.9);
+    background: rgba(11, 28, 45, 0.8); 
     border-radius: 15px;
 }
 
@@ -107,12 +179,14 @@ nav a:hover {
     padding: 25px;
     border-radius: 10px;
     text-align: center;
-    background: #f1f5f9;
+    background: rgba(11, 28, 45, 0.6); 
+    color: white; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
 }
 
-.feature h3 {
-    margin-bottom: 10px;
-}
+    .feature h3 {
+        margin-bottom: 10px;
+    }
 
 footer {
     background: rgba(2, 6, 23, 0.9);
@@ -121,11 +195,12 @@ footer {
     padding: 20px;
 }
 
-@keyframes fadeInUp {
+@keyframes fadeInUpLuxury {
     0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -178,37 +253,52 @@ footer {
         transform: translateX(-100%);
     }
 }
+.hero h3 {
+    margin-top: 40px;
+    margin-bottom: 10px; 
+}
 #flightsList {
     overflow: hidden;
     white-space: nowrap;
+    margin-top: 20px;
 }
 
-.marquee-item {
-    display: inline-block;
-    padding: 0 2rem;
+
+.flights-marquee {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 25px;
+    position: relative;
+}
+
+#flightsList {
+    display: flex;
+    gap: 60px; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
     white-space: nowrap;
-    animation: marqueeScroll 15s linear infinite;
-    margin-right: 2rem;
-}
-#usersList li {
-    margin: 8px 0;
-    font-weight: bold;
+    animation: smoothMarquee 22s linear infinite;
 }
 
-#loadingMessage {
-    color: blue;
-    font-weight: bold;
-}
+    #flightsList li {
+        font-weight: bold;
+        font-size: 16px;
+        color: #ffffff;
+    }
 
-
-@keyframes marqueeScroll {
+@keyframes smoothMarquee {
     0% {
         transform: translateX(100%);
     }
 
     100% {
         transform: translateX(-100%);
-    }
-}
 
+    }
+
+
+
+
+}
 

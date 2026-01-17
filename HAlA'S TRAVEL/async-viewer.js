@@ -5,31 +5,46 @@ const errorMessage = document.getElementById("errorMessage");
 
 loadBtn.addEventListener("click", fetchUsers);
 
+const mockUsers = [
+    { name: "Sara Ahmed", email: "sara.ahmed@example.com", city: "Amman" },
+    { name: "Omar Khaled", email: "omar.khaled@example.com", city: "Cairo" },
+    { name: "Lina Mansour", email: "lina.mansour@example.com", city: "Dubai" },
+    { name: "Tariq Saeed", email: "tariq.saeed@example.com", city: "Istanbul" },
+    { name: "Nour Al-Din", email: "nour.aldin@example.com", city: "Beirut" },
+];
+
 async function fetchUsers() {
     usersList.innerHTML = "";
     errorMessage.textContent = "";
     loadingMessage.textContent = "Loading users...";
+    loadBtn.disabled = true;
 
     try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        await new Promise((resolve) => setTimeout(resolve, 2000));
 
-        if (!response.ok) {
-            throw new Error("Failed to fetch data");
-        }
-
-        const users = await response.json();
+        const users = mockUsers;
 
         loadingMessage.textContent = "";
 
-        users.slice(0, 5).forEach(user => {
-            const li = document.createElement("li");
-            li.textContent = `${user.name} | ${user.email} | ${user.address.city}`;
-            usersList.appendChild(li);
-        });
-
+        if (users.length === 0) {
+            errorMessage.textContent = "No users found.";
+            errorMessage.style.color = "orange";
+        } else {
+            users.forEach((user) => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+          <strong>${user.name}</strong><br/>
+          Email: <a href="mailto:${user.email}">${user.email}</a><br/>
+          City: ${user.city}
+        `;
+                usersList.appendChild(li);
+            });
+        }
     } catch (error) {
         loadingMessage.textContent = "";
         errorMessage.textContent = "Error loading data. Please try again.";
         errorMessage.style.color = "red";
+    } finally {
+        loadBtn.disabled = false;
     }
 }
